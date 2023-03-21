@@ -1,15 +1,18 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to APIchu"/>
+  <PokemonGallery />
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import PokemonGallery from './components/PokemonGallery.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    PokemonGallery
   }
 }
 </script>
