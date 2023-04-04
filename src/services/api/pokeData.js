@@ -17,6 +17,15 @@ const getUniquePokeData = async(name) => {
     }
 }
 
+const getSprite = async(no) => {
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + no)
+    if (response.status == 200) {
+        return response.json();
+    } else {
+        new Error(response.statusText);
+    }
+}
+
 // faire une fonction qui récupère l'artwork / le sprite du pokémon
 
-export { getPokeData, getUniquePokeData };
+export { getPokeData, getUniquePokeData, getSprite };

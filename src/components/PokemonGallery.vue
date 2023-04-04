@@ -1,7 +1,7 @@
 <template>
     <div class="gallery">
         <!--<p v-for="pokemon in pokeData.results" :key="pokemon">{{ pokemon.name }}</p>-->
-        <PokemonCard v-for="pokemon in pokeData.results" :key="pokemon" :pokemonName="pokemon.name"></PokemonCard>
+        <PokemonCard v-for="pokemon in pokeData.results" :key="pokemon" :pokemonName="pokemon.name" :pokemonUrl="pokemon.url"></PokemonCard>
     </div>
 </template>
 

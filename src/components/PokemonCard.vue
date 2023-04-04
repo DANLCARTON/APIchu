@@ -1,7 +1,7 @@
 <template>
     <div>
         <img v-bind:src="uniquePokeImg">
-        <p>#{{ uniquePokeData.id }}. <b>{{ uniquePokeData.name }}</b></p>
+        <p>#{{ uniquePokeData.id }}. <b>{{ pokemonName }}</b></p>
     </div>
 </template>
 
@@ -20,10 +20,11 @@
         },
         methods: {
             async retrieveUniquePokemonData (name) {
+                console.log(name)
                 this.uniquePokeData = await getUniquePokeData(name);
                 this.uniquePokeImg = this.uniquePokeData.sprites.front_default;
                 // console.log("this.uniquePokeData\n", this.uniquePokeData)
-                // console.log("this.uniquePokeDataImg\n", this.uniquePokeData.sprites.front_default)
+                this.imgUrl = this.uniquePokeData.sprites.front_default
             }
         },
         mounted() {
