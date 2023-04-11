@@ -34,7 +34,11 @@
                 this.uniquePokeData = await getUniquePokeData(name);
                 // console.log("this.uniquePokeData\n", this.uniquePokeData)4
                 this.uniquePokeImg = this.uniquePokeData.sprites.front_default;
-                this.retrieveRealName(this.uniquePokeData.id)
+                if (this.uniquePokeData.name.length <= 12) {
+                    this.realName = this.uniquePokeData.name;
+                } else {
+                    this.retrieveRealName(this.uniquePokeData.id)
+                }
             },
         },
         mounted() {
