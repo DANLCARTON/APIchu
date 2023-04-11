@@ -1,31 +1,41 @@
 <template>
     <div>
         <img v-bind:src="uniquePokeImg">
-        <p>#{{ uniquePokeData.id }}. <b>{{ pokemonName }}</b></p>
+        <p>#{{ uniquePokeData.id }}. <b>{{ realName }}</b></p>
     </div>
 </template>
 
 <script>
-    import { getUniquePokeData } from '../services/api/pokeData';
+    import { getUniquePokeData, getUniquePokeSpeciesData } from '../services/api/pokeData';
     export default {
         name:"PokemonCard",
         props: {
-            pokemonName: String
+            pokemonName: String,
         },
         data() {
             return {
                 uniquePokeData: [],
-                uniquePokeImg: ""
+                uniquePokeSpeciesData: [],
+                uniquePokeImg: "",
+                realName: ""
+                
             }
-        },
+        },   
         methods: {
+            async retrieveRealName (no) {
+                console.log("please work", no)
+                this.uniquePokeSpeciesData = await getUniquePokeSpeciesData(no)
+                // console.log(pokemonSprite.id, pokemonSprite.name)
+                this.realName = this.uniquePokeSpeciesData.name
+                console.log("stp stp stp", this.realName)
+            },
             async retrieveUniquePokemonData (name) {
                 console.log(name)
                 this.uniquePokeData = await getUniquePokeData(name);
+                // console.log("this.uniquePokeData\n", this.uniquePokeData)4
                 this.uniquePokeImg = this.uniquePokeData.sprites.front_default;
-                // console.log("this.uniquePokeData\n", this.uniquePokeData)
-                this.imgUrl = this.uniquePokeData.sprites.front_default
-            }
+                this.retrieveRealName(this.uniquePokeData.id)
+            },
         },
         mounted() {
             this.retrieveUniquePokemonData(this.pokemonName)

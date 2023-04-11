@@ -1,7 +1,7 @@
 <template>
     <div class="gallery">
         <!--<p v-for="pokemon in pokeData.results" :key="pokemon">{{ pokemon.name }}</p>-->
-        <PokemonCard v-for="pokemon in pokeData.results" :key="pokemon" :pokemonName="pokemon.name" :pokemonUrl="pokemon.url"></PokemonCard>
+        <PokemonCard v-for="pokemon in pokeData.results" :key="pokemon" :pokemonName="pokemon.name"></PokemonCard>
     </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     methods: {
         async retrievePokeData() {
             this.pokeData = await getPokeData()
-            // console.log(this.pokeData.results[0])
+            console.log(this.pokeData.results[0])
         }
     },
     mounted() {

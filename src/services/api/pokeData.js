@@ -1,6 +1,6 @@
 const getPokeData = async() => {
     // const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1008&offset=0")
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon-species?limit=100000&offset=0")
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=916&offset=0")
     if (response.status == 200) {
         return response.json();
     } else {
@@ -8,16 +8,7 @@ const getPokeData = async() => {
     }
 }
 
-const getUniquePokeData = async(name) => {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + name)
-    if (response.status == 200) {
-        return response.json();
-    } else {
-        new Error(response.statusText);
-    }
-}
-
-const getSprite = async(no) => {
+const getUniquePokeData = async(no) => {
     const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + no)
     if (response.status == 200) {
         return response.json();
@@ -26,6 +17,13 @@ const getSprite = async(no) => {
     }
 }
 
-// faire une fonction qui récupère l'artwork / le sprite du pokémon
+const getUniquePokeSpeciesData = async(no) => {
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon-species/" + no)
+    if (response.status == 200) {
+        return response.json()
+    } else {
+        new Error(response.statusText)
+    }
+}
 
-export { getPokeData, getUniquePokeData, getSprite };
+export { getPokeData, getUniquePokeData, getUniquePokeSpeciesData };
