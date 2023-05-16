@@ -1,6 +1,15 @@
 const getPokeData = async() => {
     // const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1008&offset=0")
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=916&offset=0")
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1010&offset=0")
+    if (response.status == 200) {
+        return response.json();
+    } else {
+        new Error(response.statusText);
+    }
+}
+
+const getPokeDataByGen = async(gen) => {
+    const response = await fetch("https://pokeapi.co/api/v2/generation/"+gen)
     if (response.status == 200) {
         return response.json();
     } else {
@@ -26,4 +35,4 @@ const getUniquePokeSpeciesData = async(no) => {
     }
 }
 
-export { getPokeData, getUniquePokeData, getUniquePokeSpeciesData };
+export { getPokeData, getUniquePokeData, getUniquePokeSpeciesData, getPokeDataByGen };

@@ -23,14 +23,11 @@
         },   
         methods: {
             async retrieveRealName (no) {
-                console.log("please work", no)
                 this.uniquePokeSpeciesData = await getUniquePokeSpeciesData(no)
                 // console.log(pokemonSprite.id, pokemonSprite.name)
                 this.realName = this.uniquePokeSpeciesData.name
-                console.log("stp stp stp", this.realName)
             },
             async retrieveUniquePokemonData (name) {
-                console.log(name)
                 this.uniquePokeData = await getUniquePokeData(name);
                 // console.log("this.uniquePokeData\n", this.uniquePokeData)4
                 this.uniquePokeImg = this.uniquePokeData.sprites.front_default;
