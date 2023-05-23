@@ -20,17 +20,20 @@
     </select>
   </div>
   <PokemonGallery :genValue="generation"></PokemonGallery>
+  <footerFoot></footerFoot>
 </template>
 
   <script>
   import headerBar from './components/headerBar.vue'
   import PokemonGallery from './components/PokemonGallery.vue'
+  import footerFoot from './components/footer.vue'
 
   export default {
     name: 'App',
     components: {
       PokemonGallery,
-      headerBar
+      headerBar,
+      footerFoot,
     },
     data() {
       return {
