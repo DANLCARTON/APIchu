@@ -1,6 +1,7 @@
 <template>
   <!--<img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to APIchu"/>-->
+  <headerBar></headerBar>
   <div id="title">
     <h1>APICHU</h1>
   </div>
@@ -22,12 +23,14 @@
 </template>
 
   <script>
+  import headerBar from './components/headerBar.vue'
   import PokemonGallery from './components/PokemonGallery.vue'
 
   export default {
     name: 'App',
     components: {
-      PokemonGallery
+      PokemonGallery,
+      headerBar
     },
     data() {
       return {
@@ -53,12 +56,13 @@
   display: flex;
   height: 80vh;
   justify-content: center;
+  align-items: center;
 }
 h1 {
   width: 50vw;
-  margin: auto;
   font-size: 4.5em;
   color: #46b6da;
+  height: 100px;
 }
 select {
   background-color: white;
@@ -72,8 +76,5 @@ select {
 }
 select option {
   font-family: Helvetica, Arial, sans-serif; 
-}
-select option:hover {
-  background-color: #46b6da;
 }
 </style>
