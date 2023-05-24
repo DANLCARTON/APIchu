@@ -18,7 +18,7 @@
     </div>
 
     <div v-else id="pokemonInfoCard">
-        <p>no pokemon data found</p>
+        <p>search bar : no data found</p>
     </div>
 </template>
 

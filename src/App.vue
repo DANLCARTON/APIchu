@@ -62,7 +62,7 @@
 }
 #title {
   display: flex;
-  height: 80vh;
+  height: 70vh;
   justify-content: center;
   align-items: center;
 }
