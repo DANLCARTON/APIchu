@@ -18,7 +18,7 @@
       <option value="gen8">Generation VIII</option>
       <option value="gen9">Generation IX</option>
     </select>
-    <input type="text" v-model="pokemonName">
+    <input type="text" v-model="pokemonName" placeholder="e.g. 172 or Pichu" id="researchBar">
   </div>
   <pokemonInfo :researchValue="pokemonName"></pokemonInfo>
   <PokemonGallery :genValue="generation"></PokemonGallery>
@@ -83,6 +83,15 @@ select {
   margin: 0 0 20px 0;
 }
 select option {
-  font-family: Helvetica, Arial, sans-serif; 
+  font-family: Helvetica, Arial, sans-serif;
+}
+#researchBar {
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  border-top: 3px solid #46b6da;
+  border-bottom: 3px solid #46b6da;
+  border-left: none;
+  border-right: none;
+  margin-left: 20px;
 }
 </style>
