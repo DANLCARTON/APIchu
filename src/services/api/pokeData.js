@@ -9,7 +9,7 @@ const getPokeData = async() => {
 }
 
 const getPokeDataByGen = async(gen) => {
-    const response = await fetch("https://pokeapi.co/api/v2/generation/"+gen)
+    const response = await fetch("https://pokeapi.co/api/v2/generation/" + gen)
     if (response.status == 200) {
         return response.json();
     } else {

@@ -18,7 +18,9 @@
       <option value="gen8">Generation VIII</option>
       <option value="gen9">Generation IX</option>
     </select>
+    <input type="text" v-model="pokemonName">
   </div>
+  <pokemonInfo :researchValue="pokemonName"></pokemonInfo>
   <PokemonGallery :genValue="generation"></PokemonGallery>
   <footerFoot></footerFoot>
 </template>
@@ -26,6 +28,7 @@
   <script>
   import headerBar from './components/headerBar.vue'
   import PokemonGallery from './components/PokemonGallery.vue'
+  import pokemonInfo from './components/pokemonInfo.vue'
   import footerFoot from './components/footer.vue'
 
   export default {
@@ -34,10 +37,12 @@
       PokemonGallery,
       headerBar,
       footerFoot,
+      pokemonInfo
     },
     data() {
       return {
-        generation: "all"
+        generation: "all",
+        pokemonName: ""
       }
     }
   }
