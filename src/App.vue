@@ -19,10 +19,10 @@
       <option value="gen9">Generation IX</option>
     </select>
     <select v-model="sort" name="sortPicker" id="optionSort">
-      <option value="id">#0001. → #1010.</option>
-      <option value="Aid">#1010. → #0001. </option>
-      <option value="name">Abomasnow → Zygarde</option>
-      <option value="Aname">Zygarde → Abomasnow</option>
+      <option value="id">PokéDex order</option>
+      <option value="Aid">Reverse PokéDex order</option>
+      <option value="name">Alphabetical order</option>
+      <option value="Aname">Reverse Alphabetical order</option>
     </select>
     <input type="text" v-model="pokemonName" placeholder="e.g. 172 or Pichu" id="researchBar">
   </div>
