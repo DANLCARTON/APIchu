@@ -18,7 +18,7 @@
     </div>
 
     <div v-else id="pokemonInfoCard">
-        <p>search bar : no data found</p>
+        <p>no data matching {{ researchValue }}</p>
     </div>
 </template>
 
@@ -33,6 +33,7 @@ export default {
         return {
             pokeData: [],
             pokeSpeciesData: [],
+            searchTimeout: null,
         }
     },
     methods: {
@@ -40,8 +41,11 @@ export default {
             if (this.researchValue == "") {
                 return;
             } else {
-                this.pokeData = await getUniquePokeData(this.researchValue)
-                this.pokeSpeciesData = await getUniquePokeSpeciesData(this.researchValue)
+                clearTimeout(this.searchTimeout); 
+                this.searchTimeout = setTimeout(async () => {
+                    this.pokeData = await getUniquePokeData(this.researchValue)
+                    this.pokeSpeciesData = await getUniquePokeSpeciesData(this.researchValue)
+                }, 500); 
             }
         },
     },
