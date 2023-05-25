@@ -82,7 +82,6 @@
   align-items: center;
 }
 h1 {
-  width: 50vw;
   font-size: 4.5em;
   color: #46b6da;
   height: 100px;
