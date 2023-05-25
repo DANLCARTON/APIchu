@@ -15,6 +15,7 @@ export default {
     },
     props: {
         genValue: String,
+        sortValue: String,
     },
     data() {
         return {
@@ -35,7 +36,20 @@ export default {
                 this.filteredPokeData = await getPokeDataByGen(gen);
                 this.filteredPokeData = this.filteredPokeData.pokemon_species;
             }
+            this.sortPokeData();
         },
+        getId(url) {
+            const data = url.match(/pokemon\/(\d+)\//);
+            if (data) return parseInt(data[1]);
+            return null;
+        },
+        sortPokeData() {
+            console.log(this.filteredPokeData)
+            if (this.sortValue == "id") this.filteredPokeData.sort((a, b) => this.getId(a.url) > this.getId(b.url) ? 1 : -1);
+            else if (this.sortValue == "Aid") this.filteredPokeData.sort((a, b) => this.getId(a.url) < this.getId(b.url) ? 1 : -1);
+            else if (this.sortValue == "name") this.filteredPokeData.sort((a, b) => a.name > b.name ? 1 : -1);
+            else if (this.sortValue == "Aname") this.filteredPokeData.sort((a, b) => a.name < b.name ? 1 : -1);
+        }
     },
 
     mounted() {
@@ -45,6 +59,9 @@ export default {
         genValue() {
             this.filterPokeData();
         },
+        sortValue() {
+            this.sortPokeData();
+        }
     }
 }
 </script>

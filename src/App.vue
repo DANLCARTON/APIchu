@@ -18,10 +18,16 @@
       <option value="gen8">Generation VIII</option>
       <option value="gen9">Generation IX</option>
     </select>
+    <select v-model="sort" name="sortPicker" id="optionSort">
+      <option value="id">#0001. → #1010.</option>
+      <option value="Aid">#1010. → #0001. </option>
+      <option value="name">Abomasnow → Zygarde</option>
+      <option value="Aname">Zygarde → Abomasnow</option>
+    </select>
     <input type="text" v-model="pokemonName" placeholder="e.g. 172 or Pichu" id="researchBar">
   </div>
   <pokemonInfo :researchValue="pokemonName"></pokemonInfo>
-  <PokemonGallery :genValue="generation"></PokemonGallery>
+  <PokemonGallery :genValue="generation" :sortValue="sort"></PokemonGallery>
   <footerFoot></footerFoot>
 </template>
 
@@ -42,6 +48,7 @@
     data() {
       return {
         generation: "all",
+        sort: "id",
         pokemonName: ""
       }
     }
@@ -80,7 +87,6 @@ select {
   border-right: none;
   font-size: 16px;
   font-family: "Space Grotesk";
-  margin: 0 0 20px 0;
 }
 select option {
   font-family: Helvetica, Arial, sans-serif;
@@ -92,6 +98,10 @@ select option {
   border-bottom: 3px solid #46b6da;
   border-left: none;
   border-right: none;
-  margin-left: 20px;
 }
+
+select, input {
+  margin: 0 10px 20px 10px;
+}
+
 </style>
