@@ -60,9 +60,11 @@ export default {
     },
     watch: {
         genValue() {
+            localStorage.setItem("genValue", this.genValue);
             this.filterPokeData();
         },
         sortValue() {
+            localStorage.setItem("sortValue", this.sortValue);
             this.sortPokeData();
         }
     }

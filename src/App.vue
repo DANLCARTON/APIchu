@@ -51,6 +51,14 @@
         sort: "id",
         pokemonName: ""
       }
+    },
+    mounted() {
+      this.generation = "all"
+      if (localStorage.getItem("genValue")) this.generation = localStorage.getItem("genValue") 
+      console.log(this.generation)
+      this.sort = "id"
+      if (localStorage.getItem("sortValue")) this.sort = localStorage.getItem("sortValue");
+      console.log(this.sort)
     }
   }
   </script>
